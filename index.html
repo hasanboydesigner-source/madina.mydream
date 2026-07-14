@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Madina Abdullyeva - 15 yoshli ijodkorning orzularidagi sayohat mamlakatlari. Sayohat, tabiat go'zalligi va ijodiy portfoliolar.">
+    <title>Madina's Dream Destinations | Sayohat Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Slideshow Container -->
+    <div class="slideshow-bg">
+        <div class="slide-overlay"></div>
+        <div class="bg-image active" style="background-image: url('assets/images/japan.png');" id="bg-0"></div>
+        <div class="bg-image" style="background-image: url('assets/images/korea.png');" id="bg-1"></div>
+        <div class="bg-image" style="background-image: url('assets/images/saudi.png');" id="bg-2"></div>
+        <div class="bg-image" style="background-image: url('assets/images/france.png');" id="bg-3"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="logo">
+            <span class="dot"></span>
+            MADINA'S DREAMS
+        </div>
+        <nav class="nav-links">
+            <a href="#hero" class="nav-item active" onclick="setSlide(0, event)" data-i18n="nav-japan">YAPONIYA</a>
+            <a href="#hero" class="nav-item" onclick="setSlide(1, event)" data-i18n="nav-korea">KOREYA</a>
+            <a href="#hero" class="nav-item" onclick="setSlide(2, event)" data-i18n="nav-saudi">SAUDIYA</a>
+            <a href="#hero" class="nav-item" onclick="setSlide(3, event)" data-i18n="nav-france">FRANSIYA</a>
+        </nav>
+        <div class="header-controls">
+            <!-- Language Switcher -->
+            <div class="lang-selector">
+                <button class="lang-btn active" onclick="changeLanguage('uz')">UZ</button>
+                <button class="lang-btn" onclick="changeLanguage('ru')">RU</button>
+                <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+            </div>
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main class="content-wrapper">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-left">
+                <!-- Massive Destination Title -->
+                <div class="title-container">
+                    <h1 class="main-title" id="destination-title">VISIT JAPAN</h1>
+                </div>
+
+                <!-- Swipe / Navigation Helper -->
+                <div class="swipe-indicator">
+                    <span class="swipe-text" id="swipe-btn" onclick="nextSlide()" data-i18n="swipe-btn">Keyingisi &gt;&gt;</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+
+                <!-- Description Grid (dynamically handled) -->
+                <div class="desc-grid" id="desc-grid">
+                    <!-- Loaded dynamically via JavaScript for smooth animation transitions -->
+                </div>
+            </div>
+
+            <!-- Hero Right: Slide numbers and Bio Card -->
+            <div class="hero-right">
+                <!-- Vertical Slide Numbers -->
+                <div class="slide-numbers">
+                    <span class="num-item active" onclick="setSlide(0, event)" id="num-0">01</span>
+                    <span class="num-item" onclick="setSlide(1, event)" id="num-1">02</span>
+                    <span class="num-item" onclick="setSlide(2, event)" id="num-2">03</span>
+                    <span class="num-item" onclick="setSlide(3, event)" id="num-3">04</span>
+                </div>
+
+                <!-- Glassmorphic Bio Card -->
+                <div class="bio-card">
+                    <div class="bio-header">
+                        <div class="avatar-container">
+                            <img src="assets/images/profile.png" alt="Madina" class="avatar-img">
+                            <div class="avatar-ring"></div>
+                        </div>
+                        <div class="bio-title">
+                            <h2>Madina Abdullyeva</h2>
+                            <p class="age-tag" data-i18n="bio-age">15 yoshda</p>
+                        </div>
+                    </div>
+                    <div class="bio-body">
+                        <p class="bio-intro" data-i18n="bio-intro">Tabiat go'zalligini rasmda tasvirlashni va dunyoni kashf etishni yoqtiradigan ijodkor shaxs.</p>
+                        <div class="hobbies">
+                            <div class="hobby-item">
+                                <span class="hobby-icon">📚</span>
+                                <div class="hobby-text">
+                                    <strong data-i18n="hobby-1-title">Kitob o'qish</strong>
+                                    <span data-i18n="hobby-1-desc">Dunyoqarashni boyitish</span>
+                                </div>
+                            </div>
+                            <div class="hobby-item">
+                                <span class="hobby-icon">🌐</span>
+                                <div class="hobby-text">
+                                    <strong data-i18n="hobby-2-title">Internetda vaqt o'tkazish</strong>
+                                    <span data-i18n="hobby-2-desc">Yangi bilimlarni izlash</span>
+                                </div>
+                            </div>
+                            <div class="hobby-item">
+                                <span class="hobby-icon">🎨</span>
+                                <div class="hobby-text">
+                                    <strong data-i18n="hobby-3-title">Tabiatni chizish</strong>
+                                    <span data-i18n="hobby-3-desc">Go'zallikni qog'ozga ko'chirish</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Scenic Highlights Section -->
+        <section class="highlights-section">
+            <div class="section-header">
+                <span class="subtitle" data-i18n="highlights-subtitle">Go'zal go'shalar</span>
+                <h2 class="section-title" data-i18n="highlights-title">Tashrif buyurish kerak bo'lgan eng chiroyli joylar</h2>
+            </div>
+            <div class="highlights-grid" id="highlights-grid">
+                <!-- Dynamically populated by app.js -->
+            </div>
+        </section>
+
+        <!-- Destination Recommendations Section -->
+        <section class="recommendations-section">
+            <div class="section-header">
+                <span class="subtitle" data-i18n="rec-subtitle">Orzularim Xaritasi</span>
+                <h2 class="section-title" data-i18n="rec-title">Sayohat qilishni xohlaydigan manzillarim</h2>
+            </div>
+
+            <!-- Destination Grid matching reference design columns -->
+            <div class="dest-grid">
+                <!-- Column 1: Japan -->
+                <div class="dest-column active" onclick="setSlide(0, event)" id="col-0">
+                    <div class="dest-img-container">
+                        <img src="assets/images/japan.png" alt="Yaponiya">
+                        <div class="column-overlay"></div>
+                    </div>
+                    <div class="dest-info">
+                        <span class="place-rank" data-i18n="rank-1">1-manzil</span>
+                        <h4 data-i18n="japan">Yaponiya</h4>
+                        <p class="place-details" data-i18n="japan-details">Fuji tog'i va an'analar mamlakati</p>
+                    </div>
+                </div>
+
+                <!-- Column 2: Korea -->
+                <div class="dest-column" onclick="setSlide(1, event)" id="col-1">
+                    <div class="dest-img-container">
+                        <img src="assets/images/korea.png" alt="Koreya">
+                        <div class="column-overlay"></div>
+                    </div>
+                    <div class="dest-info">
+                        <span class="place-rank" data-i18n="rank-2">2-manzil</span>
+                        <h4 data-i18n="korea">Koreya</h4>
+                        <p class="place-details" data-i18n="korea-details">Qadimiy saroylar va zamonaviylik</p>
+                    </div>
+                </div>
+
+                <!-- Column 3: Saudi Arabia -->
+                <div class="dest-column" onclick="setSlide(2, event)" id="col-2">
+                    <div class="dest-img-container">
+                        <img src="assets/images/saudi.png" alt="Saudiya Arabistoni">
+                        <div class="column-overlay"></div>
+                    </div>
+                    <div class="dest-info">
+                        <span class="place-rank" data-i18n="rank-3">3-manzil</span>
+                        <h4 data-i18n="saudi">Saudiya Arabistoni</h4>
+                        <p class="place-details" data-i18n="saudi-details">Tarixiy Al-Ula va sahro sehri</p>
+                    </div>
+                </div>
+
+                <!-- Column 4: France -->
+                <div class="dest-column" onclick="setSlide(3, event)" id="col-3">
+                    <div class="dest-img-container">
+                        <img src="assets/images/france.png" alt="Fransiya">
+                        <div class="column-overlay"></div>
+                    </div>
+                    <div class="dest-info">
+                        <span class="place-rank" data-i18n="rank-4">4-manzil</span>
+                        <h4 data-i18n="france">Fransiya</h4>
+                        <p class="place-details" data-i18n="france-details">Eyfel minorasi va Provans lavandalari</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Gallery / Sketch Inspiration Section -->
+        <section class="gallery-bottom-section">
+            <div class="bottom-container">
+                <div class="left-quote">
+                    <h2 data-i18n="quote-heading">TABIAT GO'ZALLIGINI CHIZISH MAFTUNKOR SAN'AT</h2>
+                    <p class="sub-quote-desc" data-i18n="quote-desc">"Rasm chizganimda, men nafaqat ranglarni, balki tabiatning shabadasini va sokinligini ham his qilaman."</p>
+                    <div class="play-btn-wrapper" onclick="toggleMusic()">
+                        <div class="play-btn">
+                            <span class="play-icon">▶</span>
+                        </div>
+                        <span class="play-text" id="music-status" data-i18n="music-on">Musiqani yoqish (Lo-fi ambient)</span>
+                    </div>
+                </div>
+                
+                <div class="right-previews">
+                    <div class="preview-card" style="background-image: url('assets/images/japan.png');">
+                        <div class="preview-overlay"></div>
+                        <div class="preview-content">
+                            <span data-i18n="preview-1-badge">Sketching Idea</span>
+                            <h5 data-i18n="preview-1-title">Sakura ostidagi chizgilar</h5>
+                        </div>
+                    </div>
+                    <div class="preview-card" style="background-image: url('assets/images/profile.png');">
+                        <div class="preview-overlay"></div>
+                        <div class="preview-content">
+                            <span data-i18n="preview-2-badge">Madina's Canvas</span>
+                            <h5 data-i18n="preview-2-title">Ijodiy ustaxona</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <p>&copy; 2026 Madina Abdullyeva Portfolio. <span data-i18n="footer-rights">Barcha huquqlar himoyalangan.</span></p>
+        <div class="social-links">
+            <a href="https://instagram.com/madina_art" target="_blank" class="social-link">instagram.com/madina_art</a>
+        </div>
+    </footer>
+
+    <!-- Background Music (Optional Aesthetic Element) -->
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
